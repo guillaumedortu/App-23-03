@@ -1,0 +1,18 @@
+.item {
+  margin: 10px;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.cross-button {
+  background-color: white;
+  border: none;
+}
+.to-do-active {
+  color: black;
+}
+.to-do-completed {
+  text-decoration: line-through;
+}
