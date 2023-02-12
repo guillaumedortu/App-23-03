@@ -7,7 +7,7 @@ import Header from "./Header";
 
 export default function App() {
   const [toDoArray, setToDoArray] = useState([]);
-  const [displayedState, setDisplayedState] = useState("all");
+  const [displayedTask, setDisplayedTask] = useState("all");
   const [switchTheme, setSwitchTheme] = useState("day");
 
   const allComponentArray = toDoArray.map((item) => {
@@ -19,6 +19,7 @@ export default function App() {
         state={item.state}
         setToDoArray={setToDoArray}
         toDoArray={toDoArray}
+        switchTheme={switchTheme}
       />
     );
   });
@@ -34,6 +35,8 @@ export default function App() {
           state={item.state}
           setToDoArray={setToDoArray}
           toDoArray={toDoArray}
+          switchTheme={switchTheme}
+          setSwitchTheme={setSwitchTheme}
         />
       );
     });
@@ -49,22 +52,43 @@ export default function App() {
           state={item.state}
           setToDoArray={setToDoArray}
           toDoArray={toDoArray}
+          switchTheme={switchTheme}
         />
       );
     });
   return (
-    <div className="app-global">
-      <Header setSwitchTheme={setSwitchTheme} switchTheme={switchTheme} />
-      <Input toDoArray={toDoArray} setToDoArray={setToDoArray} />
-      {displayedState === "all" && allComponentArray}
-      {displayedState === "completed" && completedComponentArray}
-      {displayedState === "active" && activeComponentArray}
-      <ToolBar
-        toDoArray={toDoArray}
-        setToDoArray={setToDoArray}
-        setDisplayedState={setDisplayedState}
-        displayedState={displayedState}
-      />
+    <div
+      className={switchTheme === "day" ? "app-global-day" : "app-global-night"}
+    >
+      <div
+        className={
+          switchTheme === "day"
+            ? "backgrounded-part-day"
+            : "backgrounded-part-night"
+        }
+      >
+        <Header setSwitchTheme={setSwitchTheme} switchTheme={switchTheme} />
+        <Input
+          toDoArray={toDoArray}
+          setToDoArray={setToDoArray}
+          switchTheme={switchTheme}
+        />
+      </div>
+      <div
+        className={switchTheme === "day" ? "list-todo-day" : "list-todo-night"}
+      >
+        {displayedTask === "all" && allComponentArray}
+        {displayedTask === "completed" && completedComponentArray}
+        {displayedTask === "active" && activeComponentArray}
+
+        <ToolBar
+          toDoArray={toDoArray}
+          setToDoArray={setToDoArray}
+          setDisplayedTask={setDisplayedTask}
+          displayedTask={displayedTask}
+          switchTheme={switchTheme}
+        />
+      </div>
     </div>
   );
 }

@@ -1,3 +1,95 @@
-.app-global {
+.app-global-night {
+  height: 100%;
   min-height: 100vh;
+
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: hsl(235, 21%, 11%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-global-day {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: hsl(236, 33%, 92%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backgrounded-part-night {
+  width: 100vw;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./img/bg-desktop-dark.jpg");
+  background-size: cover;
+}
+
+.backgrounded-part-day {
+  width: 100vw;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./img/bg-desktop-light.jpg");
+  background-size: cover;
+}
+
+.list-todo-night {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: -1px 1px 5px hsl(235, 21%, 11%);
+}
+
+.list-todo-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: -1px 1px 3px hsl(225, 2%, 60%);
+}
+
+@media (max-width: 450px) {
+  .app-global-day,
+  .app-global-night {
+    max-width: 100vw;
+    padding-bottom: 80px;
+  }
+
+  .backgrounded-part-night {
+    width: 100vw;
+    min-height: 200px;
+    background-image: url("./img/bg-mobile-dark.jpg");
+  }
+
+  .backgrounded-part-day {
+    width: 100vw;
+    min-height: 200px;
+    background-image: url("./img/bg-mobile-light.jpg");
+  }
+  .list-todo-day {
+    margin: -50px 0 0 0;
+
+    width: 90vw;
+    font-size: 13px;
+  }
+
+  .list-todo-night {
+    margin: -50px 0 0 0;
+
+    width: 90vw;
+    font-size: 13px;
+  }
 }

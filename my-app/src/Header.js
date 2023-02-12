@@ -8,8 +8,8 @@ export default function Header(props) {
   };
   return (
     <div className="header">
-      <h1>To Do</h1>
-      <button onClick={handleClick}>
+      <h1>TODO</h1>
+      <button className="switch-button" onClick={handleClick}>
         <img
           className="img"
           alt="icon for switch theme feature"

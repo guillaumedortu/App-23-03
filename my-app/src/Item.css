@@ -1,18 +1,171 @@
-.item {
-  margin: 10px;
-  width: 50%;
+.item-night {
   display: flex;
-  justify-content: space-around;
-  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  background-color: hsl(235, 24%, 19%);
+  width: max(50vw, 400px);
+  height: 60px;
+  border-bottom: 0.5px solid hwb(234 37% 55%);
 }
 
-.cross-button {
+.item-night-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 16px;
+  background-color: hsl(235, 24%, 19%);
+  width: max(50vw, 400px);
+  height: 60px;
+  border-bottom: 0.5px solid hwb(234 37% 55%);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.item-day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
   background-color: white;
+  width: max(50vw, 400px);
+  height: 60px;
+  border-bottom: 0.5px solid hwb(234 37% 55%);
+}
+.item-day-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  background-color: white;
+  width: max(50vw, 400px);
+  height: 60px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 0.5px solid hwb(234 37% 55%);
+}
+
+.check-task {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.hover {
+  background: none;
+  padding-right: 20px;
   border: none;
+  color: hsl(234, 11%, 52%);
+  cursor: pointer;
 }
-.to-do-active {
-  color: black;
+
+.not-hover {
+  display: none;
 }
-.to-do-completed {
+.active-day-todo {
+  color: hsl(234, 11%, 52%);
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+
+  padding-top: 23.5px;
+  padding-bottom: 23.5px;
+}
+.checked-day-todo {
   text-decoration: line-through;
+  color: hsl(234, 39%, 85%);
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+
+  padding-top: 23.5px;
+  padding-bottom: 23.5px;
+}
+
+.active-night-todo {
+  color: hsl(234, 39%, 85%);
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+
+  padding-top: 23.5px;
+  padding-bottom: 23.5px;
+}
+.checked-night-todo {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%);
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+
+  padding-top: 23.5px;
+  padding-bottom: 23.5px;
+}
+
+.checked-night-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid hsl(234, 11%, 52%);
+  border-radius: 100px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+
+  background-image: url("./img/icon-check.svg"),
+    linear-gradient(rgba(192, 88, 243, 0.8), rgba(0, 212, 255, 0.9));
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checked-day-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid hsl(234, 11%, 52%);
+  border-radius: 100px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+
+  background-image: url("./img/icon-check.svg"),
+    linear-gradient(rgba(192, 88, 243, 0.8), rgba(0, 212, 255, 0.9));
+
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.active-night-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid hsl(234, 11%, 52%);
+  border-radius: 100px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background-color: hsl(235, 24%, 19%);
+}
+
+.active-day-button {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid hsl(234, 39%, 85%);
+  border-radius: 100px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background-color: white;
+}
+
+@media (max-width: 450px) {
+  .item-night,
+  .item-day,
+  .item-day-1,
+  .item-night-1 {
+    margin: 0;
+    height: 45px;
+    width: 90vw;
+    font-size: 13px;
+  }
 }

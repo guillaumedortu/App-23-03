@@ -32,12 +32,27 @@ export default function Input(props) {
   };
 
   return (
-    <div className="input-global">
-      <button onClick={handleClick}>+</button>
+    <div
+      className={
+        props.switchTheme === "day" ? "input-global-day" : "input-global-night"
+      }
+    >
+      <button
+        className={
+          props.switchTheme === "day" ? "add-task-day" : "add-task-night"
+        }
+        onClick={handleClick}
+      >
+        +
+      </button>
       <input
         onKeyDown={handleKeyDown}
         onChange={handleChange}
         value={inputText}
+        className={
+          props.switchTheme === "day" ? "add-input-day" : "add-input-night"
+        }
+        placeholder="Create a new todo..."
       ></input>
     </div>
   );

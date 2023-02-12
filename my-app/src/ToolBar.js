@@ -16,23 +16,104 @@ export default function ToolBar(props) {
   };
 
   const handleAll = () => {
-    props.setDisplayedState("all");
+    props.setDisplayedTask("all");
+  };
+
+  const handleStyleAll = () => {
+    if (props.displayedTask === "all" && props.switchTheme === "day") {
+      return "filter-on-day";
+    } else if (props.displayedTask !== "all" && props.switchTheme === "day") {
+      return "filter-off-day";
+    } else if (props.displayedTask === "all" && props.switchTheme === "night") {
+      return "filter-on-night";
+    } else if (props.displayedTask !== "all" && props.switchTheme === "night") {
+      return "filter-off-night";
+    }
+  };
+
+  const handleStyleActive = () => {
+    if (props.displayedTask === "active" && props.switchTheme === "day") {
+      return "filter-on-day";
+    } else if (
+      props.displayedTask !== "active" &&
+      props.switchTheme === "day"
+    ) {
+      return "filter-off-day";
+    } else if (
+      props.displayedTask === "active" &&
+      props.switchTheme === "night"
+    ) {
+      return "filter-on-night";
+    } else if (
+      props.displayedTask !== "active" &&
+      props.switchTheme === "night"
+    ) {
+      return "filter-off-night";
+    }
+  };
+
+  const handleStyleCompleted = () => {
+    if (props.displayedTask === "completed" && props.switchTheme === "day") {
+      return "filter-on-day";
+    } else if (
+      props.displayedTask !== "completed" &&
+      props.switchTheme === "day"
+    ) {
+      return "filter-off-day";
+    } else if (
+      props.displayedTask === "completed" &&
+      props.switchTheme === "night"
+    ) {
+      return "filter-on-night";
+    } else if (
+      props.displayedTask !== "completed" &&
+      props.switchTheme === "night"
+    ) {
+      return "filter-off-night";
+    }
   };
 
   const handleCompleted = () => {
-    props.setDisplayedState("completed");
+    props.setDisplayedTask("completed");
   };
 
   const handleActive = () => {
-    props.setDisplayedState("active");
+    props.setDisplayedTask("active");
+  };
+
+  const handleStyleToolbar = () => {
+    if (props.switchTheme === "day" && props.toDoArray.length === 0) {
+      return "toolbar-empty-day";
+    } else if (props.switchTheme === "day" && props.toDoArray.length !== 0) {
+      return "toolbar-global-day";
+    } else if (props.switchTheme === "night" && props.toDoArray.length === 0) {
+      return "toolbar-empty-night";
+    } else if (props.switchTheme === "night" && props.toDoArray.length !== 0) {
+      return "toolbar-global-night";
+    }
   };
   return (
-    <div className="toolbar-global">
-      <p>{props.toDoArray.length} items left</p>
-      <button onClick={handleAll}>All</button>
-      <button onClick={handleActive}>Active</button>
-      <button onClick={handleCompleted}>Completed</button>
-      <button onClick={handleClear}>Clear Completed</button>
+    <div className={handleStyleToolbar()}>
+      <p className="items-left">{props.toDoArray.length} items left</p>
+      <div
+        className={
+          props.switchTheme === "day" ? "filters-day" : "filters-night"
+        }
+      >
+        {" "}
+        <button className={handleStyleAll()} onClick={handleAll}>
+          All
+        </button>
+        <button className={handleStyleActive()} onClick={handleActive}>
+          Active
+        </button>
+        <button className={handleStyleCompleted()} onClick={handleCompleted}>
+          Completed
+        </button>
+      </div>
+      <button className="clear-button" onClick={handleClear}>
+        Clear Completed
+      </button>
     </div>
   );
 }
